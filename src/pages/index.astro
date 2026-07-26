@@ -135,6 +135,30 @@ const navigation = [
 							<span>≋ Wind<br /><strong>SE 12 kt</strong></span>
 							<span>◒ Sunset<br /><strong>8:18 pm</strong></span>
 						</div>
+						<div class="tide-strip" aria-label="Upcoming tide preview">
+							<div class="tide-heading">
+								<span class="tide-icon" aria-hidden="true">≈</span>
+								<strong>Next tides</strong>
+							</div>
+							<div class="tide-event">
+								<span aria-hidden="true">↑</span>
+								<div><small>High</small><strong>11:42 am</strong></div>
+								<em>1.4 ft</em>
+							</div>
+							<div class="tide-event">
+								<span aria-hidden="true">↓</span>
+								<div><small>Low</small><strong>8:16 pm</strong></div>
+								<em>0.5 ft</em>
+							</div>
+						</div>
+						<a
+							class="radar-link"
+							href="https://radar.weather.gov/region/tx/standard"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<span aria-hidden="true">◉</span> View weather radar <span aria-hidden="true">→</span>
+						</a>
 						<p class="weather-note">Design preview — live weather connection coming next.</p>
 					</div>
 				</article>
@@ -698,8 +722,104 @@ const navigation = [
 		color: var(--navy);
 	}
 
+	.tide-strip {
+		margin: 0 18px;
+		padding: 12px 0;
+		display: grid;
+		grid-template-columns: 0.9fr 1fr 1fr;
+		align-items: center;
+		border-top: 1px solid #dfe4e7;
+		border-bottom: 1px solid #dfe4e7;
+	}
+
+	.tide-heading {
+		display: flex;
+		align-items: center;
+		gap: 7px;
+		text-transform: uppercase;
+		font-size: 0.62rem;
+		letter-spacing: 0.08em;
+		color: var(--navy);
+	}
+
+	.tide-icon {
+		display: grid;
+		place-items: center;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		background: #e7f0f3;
+		color: #167c91;
+		font-size: 1rem;
+		font-weight: 800;
+	}
+
+	.tide-event {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		column-gap: 7px;
+		align-items: center;
+		padding-left: 12px;
+		border-left: 1px solid #dfe4e7;
+		color: #167c91;
+	}
+
+	.tide-event > span {
+		grid-row: 1 / span 2;
+		font-size: 1.2rem;
+		font-weight: 800;
+	}
+
+	.tide-event div {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.15;
+	}
+
+	.tide-event small {
+		text-transform: uppercase;
+		font-size: 0.54rem;
+		letter-spacing: 0.08em;
+		color: #718392;
+	}
+
+	.tide-event strong {
+		font-size: 0.72rem;
+		color: var(--navy);
+	}
+
+	.tide-event em {
+		grid-column: 2;
+		font-size: 0.58rem;
+		font-style: normal;
+		color: #718392;
+	}
+
+	.radar-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 7px;
+		margin: 13px 18px 8px;
+		padding: 9px 12px;
+		border: 1px solid #b9d1d7;
+		border-radius: 4px;
+		color: #116b80;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-size: 0.62rem;
+		font-weight: 800;
+		letter-spacing: 0.07em;
+		transition: background-color 160ms ease, color 160ms ease;
+	}
+
+	.radar-link:hover {
+		background: #116b80;
+		color: white;
+	}
+
 	.weather-note {
-		margin: auto 20px 15px;
+		margin: auto 20px 12px;
 		text-align: center;
 		font-size: 0.62rem;
 		color: #7b8995;
