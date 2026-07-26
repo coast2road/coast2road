@@ -163,6 +163,66 @@ const navigation = [
 					</div>
 				</article>
 			</section>
+
+			<section class="course-section" id="adventures" aria-labelledby="course-title">
+				<article class="discovery-card" id="food">
+					<p class="discovery-label"><span></span>This week’s discovery</p>
+					<img src="/images/pasteis-de-belem.png" alt="Pastéis de Belém served in Lisbon, Portugal" />
+					<div class="discovery-copy">
+						<h2>Pastéis de Belém</h2>
+						<p class="discovery-location">● Lisbon, Portugal</p>
+						<p>Warm custard, flaky crust, and a recipe older than the United States.</p>
+						<a href="#story">Read the story <span aria-hidden="true">→</span></a>
+					</div>
+				</article>
+
+				<div class="course-content">
+					<header class="section-title">
+						<span></span>
+						<div>
+							<h2 id="course-title">Choose Your Course</h2>
+							<p>Explore by category</p>
+						</div>
+						<span></span>
+					</header>
+
+					<div class="category-grid">
+						<a class="category-card" href="#maritime">
+							<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5v31M18 11h12M16 19h16M10 28c2 8 7 13 14 15 7-2 12-7 14-15M10 28h8M38 28h-8M21 5a3 3 0 1 0 6 0 3 3 0 0 0-6 0Z"/></svg>
+							<span>Maritime</span>
+						</a>
+						<a class="category-card" href="#road-trips">
+							<svg viewBox="0 0 48 48" aria-hidden="true"><path d="m10 27 3-12h22l3 12M8 27h32v11H8zM14 38v4M34 38v4M13 31h4M31 31h4M17 15l2-6h10l2 6"/></svg>
+							<span>Road Trips</span>
+						</a>
+						<a class="category-card" href="#food">
+							<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 5v14M9 5v9c0 4 2 6 5 6s5-2 5-6V5M14 20v23M31 5v38M31 5c7 5 8 15 0 20"/></svg>
+							<span>Food</span>
+						</a>
+						<a class="category-card" href="#museums">
+							<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 18h38L24 6 5 18ZM9 21v17M18 21v17M30 21v17M39 21v17M5 42h38M7 38h34"/></svg>
+							<span>Museums</span>
+						</a>
+						<a class="category-card" href="#travel">
+							<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M6 24h36M24 6c6 5 9 11 9 18s-3 13-9 18c-6-5-9-11-9-18s3-13 9-18Z"/></svg>
+							<span>Travel</span>
+						</a>
+						<a class="category-card" href="#wildlife">
+							<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M11 33c4-1 7-4 8-9 1-8 6-14 15-16-1 5 1 8 6 10-5 9-12 14-21 14M11 33l-5 8M18 33l2 9M33 12l3 1"/></svg>
+							<span>Wildlife</span>
+						</a>
+						<a class="category-card" href="#boating">
+							<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 27h34l-5 10H13L7 27ZM15 27l3-9h15l4 9M22 18v-7h7v7M5 42c4-3 8-3 12 0 4-3 8-3 12 0 4-3 8-3 12 0"/></svg>
+							<span>Boating</span>
+						</a>
+						<a class="category-card" href="#sunrises">
+							<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 37h34M12 32a12 12 0 0 1 24 0M24 5v7M7 15l5 5M41 15l-5 5M4 28h7M37 28h7"/></svg>
+							<span>Sunrises &amp;<br />Sunsets</span>
+						</a>
+					</div>
+					<a class="all-categories" href="#categories">Explore all categories <span aria-hidden="true">→</span></a>
+				</div>
+			</section>
 		</main>
 	</body>
 </html>
@@ -825,6 +885,193 @@ const navigation = [
 		color: #7b8995;
 	}
 
+	.course-section {
+		width: min(1180px, calc(100% - 42px));
+		margin: 58px auto 70px;
+		display: grid;
+		grid-template-columns: minmax(245px, 0.82fr) minmax(0, 2.3fr);
+		gap: 52px;
+		align-items: start;
+	}
+
+	.discovery-card {
+		overflow: hidden;
+		border: 1px solid #e2e5e7;
+		border-radius: 4px;
+		background: #fff;
+		box-shadow: 0 12px 35px rgba(8, 43, 74, 0.08);
+	}
+
+	.discovery-label {
+		display: flex;
+		align-items: center;
+		gap: 9px;
+		margin: 0;
+		padding: 15px 17px;
+		text-transform: uppercase;
+		font-size: 0.62rem;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+		color: var(--navy);
+	}
+
+	.discovery-label span {
+		width: 17px;
+		height: 2px;
+		background: var(--gold);
+	}
+
+	.discovery-card > img {
+		display: block;
+		width: calc(100% - 26px);
+		height: 164px;
+		margin: 0 13px;
+		object-fit: cover;
+	}
+
+	.discovery-copy {
+		padding: 17px 18px 20px;
+	}
+
+	.discovery-copy h2 {
+		margin: 0;
+		font-family: Georgia, "Times New Roman", serif;
+		font-size: 1.35rem;
+		color: var(--navy);
+	}
+
+	.discovery-location {
+		margin: 7px 0 13px !important;
+		font-size: 0.68rem !important;
+		color: #758491 !important;
+	}
+
+	.discovery-copy p {
+		margin: 0 0 16px;
+		font-size: 0.78rem;
+		line-height: 1.65;
+		color: #42596d;
+	}
+
+	.discovery-copy a,
+	.all-categories {
+		color: var(--navy);
+		text-decoration: none;
+		text-transform: uppercase;
+		font-size: 0.68rem;
+		font-weight: 800;
+		letter-spacing: 0.06em;
+	}
+
+	.discovery-copy a span,
+	.all-categories span {
+		color: var(--gold);
+		font-size: 1rem;
+	}
+
+	.course-content {
+		min-width: 0;
+	}
+
+	.section-title {
+		display: grid;
+		grid-template-columns: minmax(30px, 1fr) auto minmax(30px, 1fr);
+		align-items: center;
+		gap: 25px;
+		margin: 4px 0 23px;
+		text-align: center;
+	}
+
+	.section-title > span {
+		height: 1px;
+		background: linear-gradient(90deg, transparent, var(--gold));
+	}
+
+	.section-title > span:last-child {
+		background: linear-gradient(90deg, var(--gold), transparent);
+	}
+
+	.section-title h2 {
+		margin: 0;
+		font-family: Georgia, "Times New Roman", serif;
+		font-size: clamp(1.7rem, 3vw, 2.35rem);
+		text-transform: uppercase;
+		letter-spacing: 0.025em;
+		color: var(--navy);
+	}
+
+	.section-title p {
+		margin: 7px 0 0;
+		text-transform: uppercase;
+		font-size: 0.65rem;
+		letter-spacing: 0.1em;
+		color: #617487;
+	}
+
+	.category-grid {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		border-top: 1px solid #e0e5e8;
+		border-left: 1px solid #e0e5e8;
+		box-shadow: 0 10px 32px rgba(8, 43, 74, 0.05);
+	}
+
+	.category-card {
+		min-height: 142px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 13px;
+		padding: 16px 8px;
+		border-right: 1px solid #e0e5e8;
+		border-bottom: 1px solid #e0e5e8;
+		background: #fff;
+		color: var(--navy);
+		text-align: center;
+		text-decoration: none;
+		transition: transform 160ms ease, background-color 160ms ease, color 160ms ease;
+	}
+
+	.category-card:hover {
+		position: relative;
+		z-index: 1;
+		transform: translateY(-3px);
+		background: var(--navy);
+		color: white;
+	}
+
+	.category-card svg {
+		width: 45px;
+		height: 45px;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 2;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+	}
+
+	.category-card span {
+		text-transform: uppercase;
+		font-size: 0.68rem;
+		font-weight: 800;
+		line-height: 1.35;
+		letter-spacing: 0.05em;
+	}
+
+	.all-categories {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 9px;
+		margin: 20px auto 0;
+	}
+
+	.all-categories:hover,
+	.discovery-copy a:hover {
+		color: #167c91;
+	}
+
 	@media (max-width: 980px) {
 		nav {
 			display: none;
@@ -846,6 +1093,15 @@ const navigation = [
 			grid-column: 1 / -1;
 			width: min(100%, 520px);
 			margin: 0 auto;
+		}
+
+		.course-section {
+			grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.6fr);
+			gap: 30px;
+		}
+
+		.category-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
 
@@ -916,6 +1172,39 @@ const navigation = [
 
 		.panel-heading h2 {
 			font-size: 2rem;
+		}
+
+		.course-section {
+			grid-template-columns: 1fr;
+			width: min(560px, calc(100% - 30px));
+			gap: 40px;
+		}
+
+		.discovery-card {
+			max-width: 390px;
+			width: 100%;
+			margin: auto;
+		}
+
+		.discovery-card > img {
+			height: 195px;
+		}
+
+		.section-title {
+			gap: 12px;
+		}
+
+		.section-title h2 {
+			font-size: 1.45rem;
+		}
+
+		.category-card {
+			min-height: 120px;
+		}
+
+		.category-card svg {
+			width: 39px;
+			height: 39px;
 		}
 	}
 </style>
