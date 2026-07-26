@@ -223,6 +223,38 @@ const navigation = [
 					<a class="all-categories" href="#categories">Explore all categories <span aria-hidden="true">→</span></a>
 				</div>
 			</section>
+
+			<section class="map-preview" aria-labelledby="map-title">
+				<div class="map-copy">
+					<p class="map-script">Coming Soon</p>
+					<h2 id="map-title">The Logbook Map</h2>
+					<p>An interactive map of everywhere we’ve been—and the stories that came with each place.</p>
+					<a href="#map">Explore the map (soon)</a>
+				</div>
+
+				<div class="world-map" aria-label="Preview map showing Coast2Road destinations">
+					<svg class="map-art" viewBox="0 0 900 390" role="img" aria-label="World map">
+						<g class="continents">
+							<path d="M65 83 108 45l76-20 66 18 40 35-8 41-38 10-18 33-42 12-25 43-30-16-5-43-40-17-27-34Z"/>
+							<path d="m220 208 40 20 23 57-17 62-29 34-18-55-20-41 3-53Z"/>
+							<path d="m405 72 55-32 80 13 45 36-25 27-66-8-25 26-47-14-35-26Z"/>
+							<path d="m468 142 56-12 49 31 11 65-25 70-38 48-32-53-13-58-28-39Z"/>
+							<path d="m563 74 69-32 88 19 74 48-20 37-49-5-33 34-67-9-38-31Z"/>
+							<path d="m728 269 45-25 55 21 17 45-41 29-59-11-27-32Z"/>
+							<path d="m348 334 16-14 14 18-17 14Z"/>
+							<path d="m814 165 19-17 14 22-18 16Z"/>
+						</g>
+						<path class="route-line" d="M177 143 C245 88 333 102 425 111 S555 101 618 112"/>
+					</svg>
+
+					<div class="map-pin pin-galveston"><span></span><b>Galveston</b></div>
+					<div class="map-pin pin-philadelphia"><span></span><b>Philadelphia</b></div>
+					<div class="map-pin pin-lisbon"><span></span><b>Lisbon</b></div>
+					<div class="map-pin pin-toulouse"><span></span><b>Toulouse</b></div>
+					<div class="map-pin pin-brazil"><span></span><b>Brazil</b></div>
+					<p class="map-motto">Home. Explore.<br />Discover the story.</p>
+				</div>
+			</section>
 		</main>
 	</body>
 </html>
@@ -1072,6 +1104,192 @@ const navigation = [
 		color: #167c91;
 	}
 
+	.map-preview {
+		position: relative;
+		overflow: hidden;
+		width: min(1420px, calc(100% - 42px));
+		min-height: 340px;
+		margin: 20px auto 74px;
+		display: grid;
+		grid-template-columns: minmax(245px, 0.7fr) minmax(520px, 2fr);
+		align-items: center;
+		gap: 35px;
+		padding: 35px 55px;
+		border: 1px solid #e2e8eb;
+		border-radius: 5px;
+		background:
+			radial-gradient(circle at 85% 22%, rgba(214, 229, 235, 0.75), transparent 27%),
+			linear-gradient(120deg, #f9faf9, #eef4f5);
+		box-shadow: 0 14px 42px rgba(8, 43, 74, 0.07);
+	}
+
+	.map-preview::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		opacity: 0.17;
+		pointer-events: none;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+	}
+
+	.map-copy {
+		position: relative;
+		z-index: 2;
+	}
+
+	.map-script {
+		margin: 0 0 3px;
+		font-family: "Snell Roundhand", "Brush Script MT", cursive;
+		font-size: 1.4rem;
+		font-style: italic;
+		color: #167c91;
+	}
+
+	.map-copy h2 {
+		margin: 0 0 16px;
+		font-family: Georgia, "Times New Roman", serif;
+		font-size: clamp(1.8rem, 3vw, 2.55rem);
+		text-transform: uppercase;
+		letter-spacing: 0.025em;
+		color: var(--navy);
+	}
+
+	.map-copy > p:not(.map-script) {
+		max-width: 280px;
+		margin: 0 0 21px;
+		font-size: 0.85rem;
+		line-height: 1.7;
+		color: #3f576a;
+	}
+
+	.map-copy a {
+		display: inline-flex;
+		padding: 12px 18px;
+		border: 1px solid var(--navy);
+		color: var(--navy);
+		text-decoration: none;
+		text-transform: uppercase;
+		font-size: 0.65rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		transition: color 160ms ease, background-color 160ms ease;
+	}
+
+	.map-copy a:hover {
+		background: var(--navy);
+		color: white;
+	}
+
+	.world-map {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		max-width: 860px;
+		justify-self: end;
+	}
+
+	.map-art {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	.continents {
+		fill: #9cc2d1;
+		stroke: #7daaba;
+		stroke-width: 1.4;
+		opacity: 0.77;
+	}
+
+	.route-line {
+		fill: none;
+		stroke: #5e97aa;
+		stroke-width: 2;
+		stroke-dasharray: 7 7;
+		opacity: 0.65;
+	}
+
+	.map-pin {
+		position: absolute;
+		z-index: 3;
+		transform: translate(-50%, -100%);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		color: var(--navy);
+	}
+
+	.map-pin span {
+		position: relative;
+		width: 20px;
+		height: 25px;
+		border: 4px solid var(--navy);
+		border-radius: 50% 50% 50% 0;
+		background: #f8faf9;
+		transform: rotate(-45deg);
+		box-shadow: 0 3px 6px rgba(8, 43, 74, 0.2);
+	}
+
+	.map-pin span::after {
+		content: "";
+		position: absolute;
+		top: 5px;
+		left: 5px;
+		width: 4px;
+		height: 4px;
+		border-radius: 50%;
+		background: var(--gold);
+	}
+
+	.map-pin b {
+		margin-top: 4px;
+		padding: 2px 5px;
+		border-radius: 2px;
+		background: rgba(248, 250, 249, 0.86);
+		text-transform: uppercase;
+		font-size: 0.48rem;
+		letter-spacing: 0.05em;
+		white-space: nowrap;
+	}
+
+	.pin-galveston {
+		left: 20.5%;
+		top: 42%;
+	}
+
+	.pin-philadelphia {
+		left: 25.5%;
+		top: 31%;
+	}
+
+	.pin-lisbon {
+		left: 48%;
+		top: 31%;
+	}
+
+	.pin-toulouse {
+		left: 51.5%;
+		top: 29%;
+	}
+
+	.pin-brazil {
+		left: 28%;
+		top: 75%;
+	}
+
+	.map-motto {
+		position: absolute;
+		right: 2%;
+		bottom: 5%;
+		margin: 0;
+		font-family: "Snell Roundhand", "Brush Script MT", cursive;
+		font-size: 1rem;
+		font-style: italic;
+		line-height: 1.2;
+		color: var(--navy);
+		transform: rotate(-3deg);
+	}
+
 	@media (max-width: 980px) {
 		nav {
 			display: none;
@@ -1102,6 +1320,11 @@ const navigation = [
 
 		.category-grid {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.map-preview {
+			grid-template-columns: 0.8fr 1.5fr;
+			padding: 32px;
 		}
 	}
 
@@ -1205,6 +1428,33 @@ const navigation = [
 		.category-card svg {
 			width: 39px;
 			height: 39px;
+		}
+
+		.map-preview {
+			grid-template-columns: 1fr;
+			width: min(100% - 28px, 560px);
+			margin-top: 0;
+			padding: 30px 24px 20px;
+			gap: 12px;
+		}
+
+		.map-copy {
+			text-align: center;
+		}
+
+		.map-copy > p:not(.map-script) {
+			max-width: 380px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.world-map {
+			margin-top: 8px;
+		}
+
+		.map-pin b,
+		.map-motto {
+			display: none;
 		}
 	}
 </style>
