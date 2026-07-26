@@ -265,6 +265,11 @@ const navigation = [
 						<span><strong>coast<span>2</span>road</strong><em>The Journey Matters</em></span>
 					</a>
 					<p>Documenting authentic experiences from the water, the road, and the places in between.</p>
+					<a class="footer-email" href="mailto:hello@coast2road.com">
+						<span aria-hidden="true">✉</span>
+						<strong>Email us:</strong>
+						hello@coast2road.com
+					</a>
 				</div>
 
 				<nav class="footer-column" aria-label="Explore">
@@ -297,11 +302,11 @@ const navigation = [
 						<b aria-hidden="true">➤</b>
 					</div>
 					<small>Newsletter coming soon</small>
+					<p class="follow-label">Follow us:</p>
 					<div class="social-links" aria-label="Coast2Road social media">
 						<a href="#facebook" aria-label="Facebook">f</a>
 						<a href="#instagram" aria-label="Instagram">◎</a>
 						<a href="#youtube" aria-label="YouTube">▶</a>
-						<a href="mailto:hello@coast2road.com" aria-label="Email Coast2Road">✉</a>
 					</div>
 				</div>
 			</div>
@@ -1409,6 +1414,39 @@ const navigation = [
 		color: #afc3cf;
 	}
 
+	.footer-email {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 5px;
+		color: #d9e5eb;
+		text-decoration: none;
+		font-size: 0.69rem;
+	}
+
+	.footer-email > span {
+		display: grid;
+		place-items: center;
+		width: 25px;
+		height: 25px;
+		margin-right: 3px;
+		border: 1px solid rgba(255, 255, 255, 0.42);
+		border-radius: 50%;
+		color: var(--gold);
+	}
+
+	.footer-email strong {
+		font-family: inherit;
+		font-size: inherit;
+		font-style: normal;
+		letter-spacing: 0;
+		color: white;
+	}
+
+	.footer-email:hover {
+		color: var(--gold);
+	}
+
 	.social-links {
 		display: flex;
 		gap: 11px;
@@ -1496,7 +1534,16 @@ const navigation = [
 	}
 
 	.footer-connect .social-links {
-		margin-top: 16px;
+		margin-top: 7px;
+	}
+
+	.footer-connect .follow-label {
+		margin: 15px 0 0;
+		text-transform: uppercase;
+		font-size: 0.58rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		color: white;
 	}
 
 	.footer-bottom {
@@ -1615,6 +1662,10 @@ const navigation = [
 		}
 
 		.footer-connect .social-links {
+			grid-column: 2;
+		}
+
+		.footer-connect .follow-label {
 			grid-column: 2;
 		}
 	}
