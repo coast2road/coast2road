@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title id="title">Coast2Road compass mark</title>
+  <circle cx="60" cy="60" r="46" fill="#f7f5ef" stroke="#d6a447" stroke-width="2"/>
+  <circle cx="60" cy="60" r="35" fill="none" stroke="#082b4a" stroke-width="2"/>
+  <circle cx="60" cy="60" r="5" fill="#d6a447" stroke="#082b4a" stroke-width="2"/>
+  <path d="M60 10 67 49 60 60 53 49Z" fill="#082b4a"/>
+  <path d="m60 110-7-39 7-11 7 11Z" fill="#d6a447" stroke="#082b4a" stroke-width="1.5"/>
+  <path d="m10 60 39-7 11 7-11 7Z" fill="#d6a447" stroke="#082b4a" stroke-width="1.5"/>
+  <path d="m110 60-39 7-11-7 11-7Z" fill="#082b4a"/>
+  <path d="m27 27 26 20 7 13-13-7ZM93 27 73 53 60 60l7-13ZM93 93 67 73 60 60l13 7ZM27 93l20-26 13-7-7 13Z" fill="none" stroke="#082b4a" stroke-width="2"/>
+  <path d="M60 4v8M60 108v8M4 60h8M108 60h8M19 19l6 6M95 95l6 6M101 19l-6 6M25 95l-6 6" stroke="#d6a447" stroke-width="2" stroke-linecap="round"/>
+  <text x="60" y="25" text-anchor="middle" font-family="Georgia, serif" font-size="10" font-weight="700" fill="#082b4a">N</text>
+</svg>
