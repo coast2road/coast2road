@@ -256,6 +256,62 @@ const navigation = [
 				</div>
 			</section>
 		</main>
+
+		<footer class="site-footer" id="about">
+			<div class="footer-inner">
+				<div class="footer-brand">
+					<a href="#top" aria-label="Return to the Coast2Road homepage">
+						<img src="/images/coast2road-logo.svg" alt="" />
+						<span><strong>coast<span>2</span>road</strong><em>The Journey Matters</em></span>
+					</a>
+					<p>Documenting authentic experiences from the water, the road, and the places in between.</p>
+					<div class="social-links" aria-label="Coast2Road social media">
+						<a href="#facebook" aria-label="Facebook">f</a>
+						<a href="#instagram" aria-label="Instagram">◎</a>
+						<a href="#youtube" aria-label="YouTube">▶</a>
+						<a href="mailto:hello@coast2road.com" aria-label="Email Coast2Road">✉</a>
+					</div>
+				</div>
+
+				<nav class="footer-column" aria-label="Explore">
+					<h2>Explore</h2>
+					<a href="#logbook">Logbook</a>
+					<a href="#adventures">Adventures</a>
+					<a href="#food">Food</a>
+					<a href="#watch">Watch</a>
+				</nav>
+
+				<nav class="footer-column" aria-label="About Coast2Road">
+					<h2>About</h2>
+					<a href="#about">About Coast2Road</a>
+					<a href="#philosophy">Our Philosophy</a>
+					<a href="mailto:hello@coast2road.com">Contact</a>
+				</nav>
+
+				<nav class="footer-column" id="shop" aria-label="Shop">
+					<h2>Shop</h2>
+					<a href="#apparel">Apparel</a>
+					<a href="#accessories">Accessories</a>
+					<a href="#cookbook">Cookbook</a>
+				</nav>
+
+				<div class="footer-connect">
+					<h2>Stay Connected</h2>
+					<p>Updates on new stories, videos, recipes, and adventures.</p>
+					<div class="newsletter-preview" aria-label="Newsletter sign-up coming soon">
+						<span>Your email address</span>
+						<b aria-hidden="true">➤</b>
+					</div>
+					<small>Newsletter coming soon</small>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p>© 2026 Coast2Road, LLC</p>
+				<p class="keep-exploring"><span>✥</span> Keep Exploring.</p>
+				<div><a href="#privacy">Privacy Policy</a><span>|</span><a href="#terms">Terms of Use</a></div>
+			</div>
+		</footer>
 	</body>
 </html>
 
@@ -1290,6 +1346,201 @@ const navigation = [
 		transform: rotate(-3deg);
 	}
 
+	.site-footer {
+		width: 100%;
+		background:
+			radial-gradient(circle at 84% 25%, rgba(18, 104, 126, 0.28), transparent 30%),
+			linear-gradient(110deg, #061e36, #073a59);
+		color: #d9e5eb;
+	}
+
+	.footer-inner {
+		width: min(1380px, calc(100% - 56px));
+		margin: auto;
+		display: grid;
+		grid-template-columns: 1.65fr repeat(3, 0.72fr) 1.45fr;
+		gap: 50px;
+		padding: 52px 0 40px;
+	}
+
+	.footer-brand > a {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		color: white;
+		text-decoration: none;
+	}
+
+	.footer-brand img {
+		width: 63px;
+		height: 63px;
+		object-fit: contain;
+		filter: brightness(0) invert(1);
+		opacity: 0.92;
+	}
+
+	.footer-brand > a > span {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.footer-brand strong {
+		font-family: Georgia, "Times New Roman", serif;
+		font-size: 1.55rem;
+		font-style: italic;
+		line-height: 1;
+		letter-spacing: -0.035em;
+	}
+
+	.footer-brand strong span {
+		color: var(--gold);
+	}
+
+	.footer-brand em {
+		margin-top: 7px;
+		font-family: "Snell Roundhand", "Brush Script MT", cursive;
+		font-size: 0.9rem;
+		color: #dfb55f;
+	}
+
+	.footer-brand > p {
+		max-width: 260px;
+		margin: 18px 0;
+		font-size: 0.74rem;
+		line-height: 1.65;
+		color: #afc3cf;
+	}
+
+	.social-links {
+		display: flex;
+		gap: 11px;
+	}
+
+	.social-links a {
+		display: grid;
+		place-items: center;
+		width: 28px;
+		height: 28px;
+		border: 1px solid rgba(255, 255, 255, 0.45);
+		border-radius: 50%;
+		color: white;
+		text-decoration: none;
+		font-size: 0.7rem;
+		font-weight: 800;
+		transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+	}
+
+	.social-links a:hover {
+		border-color: var(--gold);
+		background: var(--gold);
+		color: var(--navy);
+	}
+
+	.footer-column,
+	.footer-connect {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.footer-column h2,
+	.footer-connect h2 {
+		margin: 10px 0 18px;
+		font-family: inherit;
+		font-size: 0.7rem;
+		text-transform: uppercase;
+		letter-spacing: 0.09em;
+		color: white;
+	}
+
+	.footer-column a {
+		margin-bottom: 13px;
+		color: #bdccd4;
+		text-decoration: none;
+		font-size: 0.72rem;
+	}
+
+	.footer-column a:hover {
+		color: var(--gold);
+	}
+
+	.footer-connect > p {
+		max-width: 270px;
+		margin: -2px 0 15px;
+		font-size: 0.72rem;
+		line-height: 1.6;
+		color: #bdccd4;
+	}
+
+	.newsletter-preview {
+		width: 100%;
+		max-width: 300px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 13px 14px;
+		border: 1px solid rgba(255, 255, 255, 0.36);
+		color: #92aab7;
+		font-size: 0.68rem;
+	}
+
+	.newsletter-preview b {
+		color: white;
+		font-size: 0.9rem;
+	}
+
+	.footer-connect small {
+		margin-top: 7px;
+		text-transform: uppercase;
+		font-size: 0.5rem;
+		letter-spacing: 0.08em;
+		color: #7f9baa;
+	}
+
+	.footer-bottom {
+		width: min(1380px, calc(100% - 56px));
+		margin: auto;
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+		align-items: center;
+		gap: 30px;
+		padding: 15px 0 19px;
+		border-top: 1px solid rgba(255, 255, 255, 0.13);
+		color: #8fa7b4;
+		font-size: 0.62rem;
+	}
+
+	.footer-bottom p {
+		margin: 0;
+	}
+
+	.keep-exploring {
+		font-family: "Snell Roundhand", "Brush Script MT", cursive;
+		font-size: 1rem !important;
+		font-style: italic;
+		color: #d6e1e6;
+	}
+
+	.keep-exploring span {
+		margin-right: 8px;
+		color: var(--gold);
+	}
+
+	.footer-bottom > div {
+		display: flex;
+		justify-content: flex-end;
+		gap: 12px;
+	}
+
+	.footer-bottom a {
+		color: #8fa7b4;
+		text-decoration: none;
+	}
+
+	.footer-bottom a:hover {
+		color: white;
+	}
+
 	@media (max-width: 980px) {
 		nav {
 			display: none;
@@ -1325,6 +1576,40 @@ const navigation = [
 		.map-preview {
 			grid-template-columns: 0.8fr 1.5fr;
 			padding: 32px;
+		}
+
+		.footer-inner {
+			grid-template-columns: 1.4fr repeat(3, 0.75fr);
+			gap: 30px;
+		}
+
+		.footer-connect {
+			grid-column: 1 / -1;
+			display: grid;
+			grid-template-columns: 1fr 1.5fr;
+			column-gap: 25px;
+			align-items: center;
+			padding-top: 5px;
+			border-top: 1px solid rgba(255, 255, 255, 0.12);
+		}
+
+		.footer-connect h2 {
+			grid-column: 1;
+			margin-bottom: 4px;
+		}
+
+		.footer-connect > p {
+			grid-column: 1;
+		}
+
+		.newsletter-preview {
+			grid-column: 2;
+			grid-row: 1 / span 2;
+			max-width: none;
+		}
+
+		.footer-connect small {
+			grid-column: 2;
 		}
 	}
 
@@ -1455,6 +1740,39 @@ const navigation = [
 		.map-pin b,
 		.map-motto {
 			display: none;
+		}
+
+		.footer-inner {
+			width: min(100% - 40px, 560px);
+			grid-template-columns: 1fr 1fr;
+			gap: 32px 28px;
+			padding-top: 40px;
+		}
+
+		.footer-brand,
+		.footer-connect {
+			grid-column: 1 / -1;
+		}
+
+		.footer-connect {
+			display: flex;
+			align-items: stretch;
+		}
+
+		.newsletter-preview {
+			width: 100%;
+			max-width: none;
+		}
+
+		.footer-bottom {
+			width: min(100% - 40px, 560px);
+			grid-template-columns: 1fr;
+			gap: 11px;
+			text-align: center;
+		}
+
+		.footer-bottom > div {
+			justify-content: center;
 		}
 	}
 </style>
