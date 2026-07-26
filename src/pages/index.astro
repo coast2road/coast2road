@@ -265,12 +265,6 @@ const navigation = [
 						<span><strong>coast<span>2</span>road</strong><em>The Journey Matters</em></span>
 					</a>
 					<p>Documenting authentic experiences from the water, the road, and the places in between.</p>
-					<div class="social-links" aria-label="Coast2Road social media">
-						<a href="#facebook" aria-label="Facebook">f</a>
-						<a href="#instagram" aria-label="Instagram">◎</a>
-						<a href="#youtube" aria-label="YouTube">▶</a>
-						<a href="mailto:hello@coast2road.com" aria-label="Email Coast2Road">✉</a>
-					</div>
 				</div>
 
 				<nav class="footer-column" aria-label="Explore">
@@ -303,6 +297,12 @@ const navigation = [
 						<b aria-hidden="true">➤</b>
 					</div>
 					<small>Newsletter coming soon</small>
+					<div class="social-links" aria-label="Coast2Road social media">
+						<a href="#facebook" aria-label="Facebook">f</a>
+						<a href="#instagram" aria-label="Instagram">◎</a>
+						<a href="#youtube" aria-label="YouTube">▶</a>
+						<a href="mailto:hello@coast2road.com" aria-label="Email Coast2Road">✉</a>
+					</div>
 				</div>
 			</div>
 
@@ -1495,6 +1495,10 @@ const navigation = [
 		color: #7f9baa;
 	}
 
+	.footer-connect .social-links {
+		margin-top: 16px;
+	}
+
 	.footer-bottom {
 		width: min(1380px, calc(100% - 56px));
 		margin: auto;
@@ -1607,6 +1611,10 @@ const navigation = [
 		}
 
 		.footer-connect small {
+			grid-column: 2;
+		}
+
+		.footer-connect .social-links {
 			grid-column: 2;
 		}
 	}
