@@ -144,8 +144,11 @@ const navigation = [
 	.brand-copy strong {
 		font-family: Georgia, "Times New Roman", serif;
 		font-size: clamp(1.35rem, 2vw, 2rem);
+		font-style: italic;
 		letter-spacing: 0.035em;
 		color: var(--navy);
+		transform: skewX(-4deg);
+		transform-origin: left center;
 	}
 
 	.brand-copy strong span {
@@ -274,16 +277,22 @@ const navigation = [
 		font-family: Georgia, "Times New Roman", serif;
 		font-size: clamp(3.6rem, 6vw, 6.1rem);
 		font-weight: 700;
+		font-style: italic;
 		line-height: 0.95;
 		letter-spacing: -0.035em;
+		transform: skewX(-4deg);
+		transform-origin: left center;
 	}
 
 	.script {
 		margin: 18px 0 0;
-		font-family: "Snell Roundhand", "Brush Script MT", cursive;
-		font-size: clamp(1.8rem, 3.5vw, 3.4rem);
-		line-height: 1.1;
-		color: #f2c477;
+		text-transform: uppercase;
+		font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+		font-size: clamp(0.75rem, 1.25vw, 0.95rem);
+		font-weight: 700;
+		line-height: 1.5;
+		letter-spacing: 0.22em;
+		color: #f5d296;
 	}
 
 	.gold-rule {
@@ -418,7 +427,9 @@ const navigation = [
 		}
 
 		.script {
-			font-size: 1.95rem;
+			max-width: 280px;
+			font-size: 0.72rem;
+			letter-spacing: 0.16em;
 		}
 	}
 </style>
