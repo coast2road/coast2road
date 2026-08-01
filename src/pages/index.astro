@@ -32,7 +32,7 @@ const navigation = [
 				</span>
 			</a>
 
-			<nav aria-label="Main navigation">
+			<nav class="main-navigation" id="main-navigation" aria-label="Main navigation">
 				{navigation.map((item, index) => (
 					<a class:list={['nav-link', { active: index === 0 }]} href={item.href}>
 						{item.label}
@@ -40,7 +40,13 @@ const navigation = [
 				))}
 			</nav>
 
-			<button class="menu-button" type="button" aria-label="Open navigation menu">
+			<button
+				class="menu-button"
+				type="button"
+				aria-label="Open navigation menu"
+				aria-controls="main-navigation"
+				aria-expanded="false"
+			>
 				<span></span><span></span><span></span>
 			</button>
 		</header>
@@ -89,7 +95,7 @@ const navigation = [
 							<div class="story-meta">
 								<span>▣ July 12, 2026</span>
 								<span>◷ 3 min read</span>
-								<a href="#article" aria-label="Read A Week in Toulouse">→</a>
+								<a href="/logbook/week-in-toulouse/" aria-label="Read A Week in Toulouse">→</a>
 							</div>
 						</div>
 					</div>
@@ -310,6 +316,31 @@ const navigation = [
 				<div><a href="#privacy">Privacy Policy</a><span>|</span><a href="#terms">Terms of Use</a></div>
 			</div>
 		</footer>
+
+		<script>
+			const menuButton = document.querySelector<HTMLButtonElement>('.menu-button');
+			const mainNavigation = document.querySelector<HTMLElement>('.main-navigation');
+
+			const closeMenu = () => {
+				if (!menuButton || !mainNavigation) return;
+				menuButton.setAttribute('aria-expanded', 'false');
+				menuButton.setAttribute('aria-label', 'Open navigation menu');
+				mainNavigation.classList.remove('open');
+			};
+
+			menuButton?.addEventListener('click', () => {
+				if (!mainNavigation) return;
+				const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+				menuButton.setAttribute('aria-expanded', String(!isOpen));
+				menuButton.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
+				mainNavigation.classList.toggle('open', !isOpen);
+			});
+
+			mainNavigation?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+			window.addEventListener('resize', () => {
+				if (window.innerWidth > 980) closeMenu();
+			});
+		</script>
 	</body>
 </html>
 
@@ -447,6 +478,19 @@ const navigation = [
 		height: 2px;
 		margin: 5px 0;
 		background: var(--navy);
+		transition: transform 180ms ease, opacity 180ms ease;
+	}
+
+	.menu-button[aria-expanded="true"] span:first-child {
+		transform: translateY(7px) rotate(45deg);
+	}
+
+	.menu-button[aria-expanded="true"] span:nth-child(2) {
+		opacity: 0;
+	}
+
+	.menu-button[aria-expanded="true"] span:last-child {
+		transform: translateY(-7px) rotate(-45deg);
 	}
 
 	main {
@@ -1586,8 +1630,48 @@ const navigation = [
 	}
 
 	@media (max-width: 980px) {
-		nav {
+		.main-navigation {
+			position: absolute;
+			top: calc(100% - 8px);
+			right: 0;
 			display: none;
+			width: min(340px, calc(100vw - 48px));
+			padding: 10px;
+			border: 1px solid rgba(8, 43, 74, 0.12);
+			border-radius: 4px;
+			flex-direction: column;
+			align-items: stretch;
+			gap: 0;
+			background: rgba(255, 255, 255, 0.98);
+			box-shadow: 0 18px 45px rgba(3, 29, 51, 0.18);
+		}
+
+		.main-navigation.open {
+			display: flex;
+		}
+
+		.main-navigation .nav-link {
+			padding: 15px 18px;
+			border-bottom: 1px solid rgba(8, 43, 74, 0.08);
+		}
+
+		.main-navigation .nav-link:last-child {
+			border-bottom: 0;
+		}
+
+		.main-navigation .nav-link::after {
+			top: 11px;
+			right: auto;
+			bottom: 11px;
+			left: 0;
+			width: 2px;
+			height: auto;
+			transform: scaleY(0.4);
+		}
+
+		.main-navigation .nav-link:hover::after,
+		.main-navigation .nav-link.active::after {
+			transform: scaleY(1);
 		}
 
 		.menu-button {

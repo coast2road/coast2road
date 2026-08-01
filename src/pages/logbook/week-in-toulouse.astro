@@ -1,0 +1,193 @@
+---
+const highlights = [
+	{ number: '01', title: 'Aeroscopia', text: 'A close look at the aircraft and stories that helped make Toulouse one of the world’s great aviation cities.' },
+	{ number: '02', title: 'Inside Airbus', text: 'The Airbus tour offered a rare glimpse behind the scenes at the scale, precision, and teamwork of modern aircraft production.' },
+	{ number: '03', title: 'The Garonne', text: 'A riverboat ride revealed a slower side of the city, with Toulouse unfolding along the water in warm brick and soft evening light.' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="A week exploring Toulouse—from Aeroscopia and Airbus to the Garonne, the Capitole, and the food of southwest France." />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>A Week in Toulouse | coast2road</title>
+	</head>
+	<body>
+		<header class="site-header">
+			<a class="brand" href="/" aria-label="Coast2Road home">
+				<img src="/images/coast2road-logo.svg" alt="" />
+				<span><strong>coast<span>2</span>road</strong><em>The Journey Matters</em></span>
+			</a>
+			<a class="back-link" href="/#logbook"><span aria-hidden="true">←</span> Back to the logbook</a>
+		</header>
+
+		<main>
+			<article>
+				<header class="article-hero">
+					<img src="/images/toulouse-garonne.png" alt="The Garonne River and waterfront in Toulouse, France" />
+					<div class="hero-shade"></div>
+					<div class="hero-copy">
+						<p class="eyebrow">Travel Logbook <span></span> France</p>
+						<h1>A Week in Toulouse</h1>
+						<p class="dek">Airbus, riverboats, city streets, and the flavors of southwest France.</p>
+						<div class="meta"><span>July 12, 2026</span><span>3 min read</span></div>
+					</div>
+				</header>
+
+				<div class="article-layout">
+					<aside>
+						<p>Filed under</p>
+						<a href="/#adventures">Travel</a>
+						<a href="/#aviation">Aviation</a>
+						<a href="/#food">Food</a>
+					</aside>
+
+					<div class="article-body">
+						<p class="lead">Cassia’s conference was the reason we ended up in Toulouse. It brought us to a city that seems to live in two worlds—a center of modern aviation whose oldest streets, riverside views, and café tables invite you to slow down.</p>
+
+						<p>Our week offered a little of both. Aviation was a natural place to begin. At Aeroscopia, historic aircraft tell the story of how flight evolved—and why Toulouse became so important to it. The Airbus tour carried that story into the present, offering a look at the immense scale and careful coordination behind the aircraft we see crossing the sky every day.</p>
+
+						<div class="aviation-gallery">
+							<figure>
+								<img src="/images/aeroscopia-airbus-a340.jpeg" alt="Airbus A340-600 displayed outside Aeroscopia in Toulouse" />
+								<figcaption>An Airbus A340-600 on display at Aeroscopia.</figcaption>
+							</figure>
+							<figure>
+								<img src="/images/aeroscopia-airbus-beluga.jpeg" alt="Head-on view of an Airbus Beluga displayed at Aeroscopia" />
+								<figcaption>Face to face with the unmistakable Airbus Beluga.</figcaption>
+							</figure>
+						</div>
+
+						<section class="highlights" aria-label="Toulouse highlights">
+							{highlights.map((highlight) => (
+								<div>
+									<span>{highlight.number}</span>
+									<h2>{highlight.title}</h2>
+									<p>{highlight.text}</p>
+								</div>
+							))}
+						</section>
+
+						<h2>Beyond the flight line</h2>
+						<p>A riverboat ride on the Garonne changed the pace completely. From the water, the city’s bridges and warm brick façades took on a different character. It was a reminder that some places are best understood by stepping away from the streets for a while.</p>
+
+						<figure>
+							<img src="/images/toulouse-riverboat.jpeg" alt="Riverboat docked on the Garonne beneath the Pont Neuf in Toulouse" />
+							<figcaption>Our riverboat waiting on the Garonne, with the Pont Neuf beyond.</figcaption>
+						</figure>
+
+						<p>Back on land, we explored the streets around the Capitole—the grand civic heart of Toulouse. The squares, shops, markets, and tucked-away corners made wandering as memorable as any scheduled stop.</p>
+
+						<blockquote>In Toulouse, the journey moves easily from aircraft hangars to riverbanks—and there is always something worth tasting along the way.</blockquote>
+
+						<h2>A city best explored slowly</h2>
+						<p>And then there was the food: local markets, relaxed meals, regional flavors, and the kind of simple dishes that stay with you long after a trip ends. Toulouse gave us plenty to see, but the unhurried moments between destinations are what brought the week together.</p>
+
+						<figure>
+							<img src="/images/toulouse-market.jpeg" alt="Shoppers gathered around an outdoor market stall on a tree-lined square in Toulouse" />
+							<figcaption>A neighborhood market—one of the everyday scenes that made Toulouse memorable.</figcaption>
+						</figure>
+
+						<p>It was aviation that first drew our attention to Toulouse. It was the river, the streets, and the food that made the city feel like more than a stop on the map.</p>
+
+						<figure>
+							<img src="/images/toulouse-sunrise-departure.jpeg" alt="Toulouse seen through an airplane window while departing at sunrise" />
+							<figcaption>Flying out at sunrise, with Toulouse fading below us.</figcaption>
+						</figure>
+
+						<footer class="article-end">
+							<img src="/images/coast2road-compass.svg" alt="" />
+							<p><span>From the coast to the road</span><strong>Keep exploring.</strong></p>
+						</footer>
+					</div>
+				</div>
+			</article>
+		</main>
+
+		<footer class="site-footer">
+			<p>© 2026 coast2road</p>
+			<a href="/">Home</a>
+			<a href="mailto:info@coast2road.com">info@coast2road.com</a>
+		</footer>
+	</body>
+</html>
+
+<style is:global>
+	:root { --navy: #082b4a; --deep-navy: #021b31; --gold: #c99135; --paper: #f7f5f0; --ink: #10273e; }
+	* { box-sizing: border-box; }
+	body { margin: 0; color: var(--ink); background: var(--paper); font-family: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif; }
+	a { color: inherit; }
+	.site-header { display: flex; align-items: center; justify-content: space-between; width: min(1180px, calc(100% - 48px)); min-height: 108px; margin: auto; gap: 24px; }
+	.brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; }
+	.brand img { width: 68px; height: 68px; }
+	.brand > span { display: flex; flex-direction: column; line-height: 1; }
+	.brand strong { font-family: Georgia, serif; font-size: 1.7rem; font-style: italic; color: var(--navy); transform: skewX(-4deg); }
+	.brand strong span { color: var(--gold); }
+	.brand em { margin-top: 7px; font-family: "Snell Roundhand", "Brush Script MT", cursive; font-size: .9rem; font-weight: 600; color: var(--gold); }
+	.back-link { text-decoration: none; text-transform: uppercase; font-size: .7rem; font-weight: 800; letter-spacing: .1em; color: var(--navy); }
+	.back-link span { margin-right: 8px; color: var(--gold); }
+	.article-hero { position: relative; display: flex; min-height: 620px; align-items: flex-end; overflow: hidden; color: white; background: var(--navy); }
+	.article-hero > img, .hero-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+	.article-hero > img { object-fit: cover; object-position: 35% 45%; }
+	.hero-shade { background: linear-gradient(0deg, rgba(1, 20, 36, .92), rgba(1, 20, 36, .12) 72%); }
+	.hero-copy { position: relative; width: min(1040px, calc(100% - 48px)); margin: 0 auto; padding: 150px 0 58px; }
+	.eyebrow { display: flex; align-items: center; gap: 14px; margin: 0 0 14px; text-transform: uppercase; font-size: .72rem; font-weight: 800; letter-spacing: .16em; color: #f3ca82; }
+	.eyebrow span { width: 35px; height: 1px; background: var(--gold); }
+	h1 { max-width: 820px; margin: 0; font-family: Georgia, serif; font-size: clamp(3.2rem, 7vw, 6.6rem); font-weight: 400; line-height: .98; letter-spacing: -.04em; }
+	.dek { max-width: 670px; margin: 22px 0; font-family: Georgia, serif; font-size: clamp(1.15rem, 2vw, 1.55rem); line-height: 1.5; color: #e6edf2; }
+	.meta { display: flex; gap: 24px; text-transform: uppercase; font-size: .65rem; font-weight: 800; letter-spacing: .1em; color: #d3dde5; }
+	.article-layout { display: grid; grid-template-columns: 150px minmax(0, 760px); width: min(1040px, calc(100% - 48px)); margin: 0 auto; padding: 82px 0 110px; gap: 70px; }
+	aside { display: flex; position: sticky; top: 30px; height: fit-content; padding-top: 8px; flex-direction: column; gap: 12px; }
+	aside p { margin: 0 0 4px; text-transform: uppercase; font-size: .62rem; font-weight: 800; letter-spacing: .14em; color: #748596; }
+	aside a { width: fit-content; text-decoration-color: #d6b16d; text-underline-offset: 4px; font-family: Georgia, serif; color: var(--navy); }
+	.article-body { min-width: 0; }
+	.article-body > p, .article-body > h2, blockquote { max-width: 680px; }
+	.article-body p { font-family: Georgia, serif; font-size: 1.08rem; line-height: 1.85; color: #30465a; }
+	.article-body .lead { margin-top: 0; font-size: 1.38rem; line-height: 1.7; color: var(--navy); }
+	.article-body > h2 { margin: 60px 0 12px; font-family: Georgia, serif; font-size: 2rem; font-weight: 400; color: var(--navy); }
+	.highlights { display: grid; grid-template-columns: repeat(3, 1fr); margin: 54px 0; border-top: 1px solid #d9d7d0; border-bottom: 1px solid #d9d7d0; }
+	.highlights div { padding: 28px 24px 30px; border-right: 1px solid #d9d7d0; }
+	.highlights div:first-child { padding-left: 0; }
+	.highlights div:last-child { border-right: 0; padding-right: 0; }
+	.highlights span { font-size: .65rem; font-weight: 800; letter-spacing: .12em; color: var(--gold); }
+	.highlights h2 { margin: 8px 0 10px; font-family: Georgia, serif; font-size: 1.2rem; color: var(--navy); }
+	.highlights p { margin: 0; font-size: .88rem; line-height: 1.65; }
+	blockquote { margin: 55px 0; padding: 8px 0 8px 30px; border-left: 3px solid var(--gold); font-family: Georgia, serif; font-size: 1.55rem; font-style: italic; line-height: 1.55; color: var(--navy); }
+	figure { margin: 42px 0 50px; }
+	figure img { display: block; width: 100%; max-height: 720px; border-radius: 3px; object-fit: cover; object-position: center 42%; box-shadow: 0 14px 35px rgba(3, 29, 51, .11); }
+	figcaption { margin-top: 12px; font-size: .72rem; font-style: italic; line-height: 1.5; color: #6f7f8d; }
+	.aviation-gallery { display: grid; grid-template-columns: 1fr 1fr; margin: 42px 0 50px; gap: 18px; }
+	.aviation-gallery figure { margin: 0; }
+	.aviation-gallery img { height: 520px; max-height: none; }
+	.article-end { display: flex; align-items: center; margin-top: 75px; padding-top: 32px; border-top: 1px solid #d9d7d0; gap: 16px; }
+	.article-end img { width: 58px; height: 58px; }
+	.article-end p { display: flex; margin: 0; flex-direction: column; }
+	.article-end span { text-transform: uppercase; font-family: "Avenir Next", sans-serif; font-size: .6rem; font-weight: 800; letter-spacing: .12em; color: #748596; }
+	.article-end strong { margin-top: 5px; font-family: Georgia, serif; font-size: 1.3rem; color: var(--navy); }
+	.site-footer { display: flex; justify-content: center; padding: 30px 24px; gap: 30px; font-size: .7rem; color: #b9c7d0; background: var(--deep-navy); }
+	.site-footer p { margin: 0; }
+	.site-footer a { text-decoration: none; }
+	@media (max-width: 720px) {
+		.site-header { min-height: 88px; }
+		.brand img { width: 52px; height: 52px; }
+		.brand strong { font-size: 1.25rem; }
+		.brand em { font-size: .75rem; }
+		.back-link { font-size: 0; }
+		.back-link span { font-size: 1.4rem; }
+		.article-hero { min-height: 560px; }
+		.hero-copy { width: min(100% - 32px, 1040px); padding-bottom: 38px; }
+		h1 { font-size: clamp(2.8rem, 15vw, 4.2rem); }
+		.article-layout { grid-template-columns: 1fr; width: min(100% - 38px, 760px); padding: 55px 0 75px; gap: 25px; }
+		aside { position: static; flex-direction: row; flex-wrap: wrap; padding: 0 0 20px; }
+		aside p { width: 100%; }
+		.highlights { grid-template-columns: 1fr; }
+		.highlights div, .highlights div:first-child, .highlights div:last-child { padding: 22px 0; border-right: 0; border-bottom: 1px solid #d9d7d0; }
+		.highlights div:last-child { border-bottom: 0; }
+		.aviation-gallery { grid-template-columns: 1fr; }
+		.aviation-gallery img { height: auto; max-height: 680px; }
+		.site-footer { flex-wrap: wrap; gap: 12px 24px; }
+	}
+</style>
