@@ -4,8 +4,7 @@ const navigation = [
 	{ label: 'Logbook', href: '#logbook' },
 	{ label: 'Adventures', href: '#adventures' },
 	{ label: 'Food', href: '#food' },
-	{ label: 'Watch', href: '#watch' },
-	{ label: 'Shop', href: '#shop' },
+	{ label: 'Watch', href: 'https://www.youtube.com/@coast2road' },
 	{ label: 'About', href: '/about/' },
 ];
 ---
@@ -123,11 +122,11 @@ const navigation = [
 							<h3>Dolphins at the Bow</h3>
 							<p>Some days the ocean gives you a show.</p>
 						</div>
-						<a class="video-image" href="#video" aria-label="Watch Dolphins at the Bow">
+						<a class="video-image" href="https://www.youtube.com/@coast2road" target="_blank" rel="noopener noreferrer" aria-label="Visit Coast2Road on YouTube">
 							<img src="/images/dolphin-preview.png" alt="A dolphin surfacing beside the vessel" />
 							<span class="play-button" aria-hidden="true">▶</span>
 						</a>
-						<a class="watch-button" href="#video"><span>▶</span> Watch now</a>
+						<a class="watch-button" href="https://www.youtube.com/@coast2road" target="_blank" rel="noopener noreferrer"><span>▶</span> Watch on YouTube</a>
 					</div>
 				</article>
 
@@ -190,7 +189,7 @@ const navigation = [
 						<h2>Pastéis de Belém</h2>
 						<p class="discovery-location">● Lisbon, Portugal</p>
 						<p>Warm custard, flaky crust, and a recipe older than the United States.</p>
-						<a href="#story">Read the story <span aria-hidden="true">→</span></a>
+						<span class="story-status">Story coming soon</span>
 					</div>
 				</article>
 
@@ -205,40 +204,40 @@ const navigation = [
 					</header>
 
 					<div class="category-grid">
-						<a class="category-card" href="#maritime">
+						<div class="category-card">
 							<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5v31M18 11h12M16 19h16M10 28c2 8 7 13 14 15 7-2 12-7 14-15M10 28h8M38 28h-8M21 5a3 3 0 1 0 6 0 3 3 0 0 0-6 0Z"/></svg>
 							<span>Maritime</span>
-						</a>
-						<a class="category-card" href="#rv-travel">
+						</div>
+						<div class="category-card">
 							<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 12h31c3 0 5 2 5 5v20H6V12ZM11 17h12v9H11zM28 17h9v9h-9zM31 31h6M12 37a4 4 0 1 0 8 0M31 37a4 4 0 1 0 8 0M6 29H3v6h3"/></svg>
 							<span>RV Travel</span>
-						</a>
+						</div>
 						<a class="category-card" href="#food">
 							<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 5v14M9 5v9c0 4 2 6 5 6s5-2 5-6V5M14 20v23M31 5v38M31 5c7 5 8 15 0 20"/></svg>
 							<span>Food</span>
 						</a>
-						<a class="category-card" href="#museums">
+						<div class="category-card">
 							<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 18h38L24 6 5 18ZM9 21v17M18 21v17M30 21v17M39 21v17M5 42h38M7 38h34"/></svg>
 							<span>Museums</span>
-						</a>
-						<a class="category-card" href="#travel">
+						</div>
+						<div class="category-card">
 							<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M6 24h36M24 6c6 5 9 11 9 18s-3 13-9 18c-6-5-9-11-9-18s3-13 9-18Z"/></svg>
 							<span>Travel</span>
-						</a>
-						<a class="category-card" href="#nature">
+						</div>
+						<div class="category-card">
 							<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 35c2-13 10-22 27-26 1 17-7 28-27 26ZM9 35c7-8 14-14 23-20M8 40l5-7M35 33a8 8 0 0 1 7 7M39 25v4M29 35h4"/></svg>
 							<span>Nature</span>
-						</a>
-						<a class="category-card" href="#boating">
+						</div>
+						<div class="category-card">
 							<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 27h34l-5 10H13L7 27ZM15 27l3-9h15l4 9M22 18v-7h7v7M5 42c4-3 8-3 12 0 4-3 8-3 12 0 4-3 8-3 12 0"/></svg>
 							<span>Boating</span>
-						</a>
-						<a class="category-card" href="#aviation">
+						</div>
+						<div class="category-card">
 							<svg viewBox="0 0 48 48" aria-hidden="true"><path d="m5 27 16-5V9c0-3 1-5 3-7 2 2 3 4 3 7v13l16 5v4l-16-2v9l6 4v3l-9-2-9 2v-3l6-4v-9L5 31v-4Z"/></svg>
 							<span>Aviation</span>
-						</a>
+						</div>
 					</div>
-					<a class="all-categories" href="#categories">Explore all categories <span aria-hidden="true">→</span></a>
+					<p class="all-categories">More category stories coming soon</p>
 				</div>
 			</section>
 
@@ -247,7 +246,7 @@ const navigation = [
 					<p class="map-script">Coming Soon</p>
 					<h2 id="map-title">The Logbook Map</h2>
 					<p>An interactive map of everywhere we’ve been—and the stories that came with each place.</p>
-					<a href="#map">Explore the map (soon)</a>
+					<span class="map-status">Interactive map coming soon</span>
 				</div>
 
 				<div class="world-map" aria-label="Preview map showing Coast2Road destinations">
@@ -295,13 +294,13 @@ const navigation = [
 					<a href="#logbook">Logbook</a>
 					<a href="#adventures">Adventures</a>
 					<a href="#food">Food</a>
-					<a href="#watch">Watch</a>
+					<a href="https://www.youtube.com/@coast2road" target="_blank" rel="noopener noreferrer">Watch</a>
 				</nav>
 
 				<nav class="footer-column" aria-label="About Coast2Road">
 					<h2>About</h2>
 					<a href="/about/">About coast2road</a>
-					<a href="#philosophy">Our Philosophy</a>
+					<a href="/about/#philosophy">Our Philosophy</a>
 					<a href="mailto:info@coast2road.com">Contact</a>
 				</nav>
 
@@ -325,7 +324,7 @@ const navigation = [
 			<div class="footer-bottom">
 				<p>© 2026 coast2road</p>
 				<p class="keep-exploring"><span>✥</span> Keep Exploring.</p>
-				<div><a href="#privacy">Privacy Policy</a><span>|</span><a href="#terms">Terms of Use</a></div>
+				<div><a href="/about/">Our Story</a></div>
 			</div>
 		</footer>
 
@@ -1096,6 +1095,7 @@ const navigation = [
 	}
 
 	.discovery-copy a,
+	.story-status,
 	.all-categories {
 		color: var(--navy);
 		text-decoration: none;
@@ -1175,7 +1175,7 @@ const navigation = [
 		transition: transform 160ms ease, background-color 160ms ease, color 160ms ease;
 	}
 
-	.category-card:hover {
+	a.category-card:hover {
 		position: relative;
 		z-index: 1;
 		transform: translateY(-3px);
@@ -1209,7 +1209,6 @@ const navigation = [
 		margin: 20px auto 0;
 	}
 
-	.all-categories:hover,
 	.discovery-copy a:hover {
 		color: #167c91;
 	}
@@ -1288,6 +1287,17 @@ const navigation = [
 	.map-copy a:hover {
 		background: var(--navy);
 		color: white;
+	}
+
+	.map-status {
+		display: inline-block;
+		padding: 12px 18px;
+		border: 1px solid rgba(8, 43, 74, 0.3);
+		text-transform: uppercase;
+		font-size: 0.65rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		color: #617487;
 	}
 
 	.world-map {
