@@ -146,34 +146,35 @@ const featuredVideo = {
 						<div class="weather-location">● Galveston, TX</div>
 						<div class="weather-now">
 							<div>
-								<strong>82<span>°F</span></strong>
-								<p>Partly cloudy</p>
+								<strong><span class="temperature-value" id="current-temperature">--</span><span>°F</span></strong>
+								<p id="current-condition">Loading conditions…</p>
 							</div>
-							<div class="weather-icon" aria-label="Partly cloudy">☀︎<span>☁</span></div>
+							<div class="weather-icon" id="current-weather-icon" aria-hidden="true">◌</div>
 						</div>
 						<div class="forecast">
-							<div><span>Fri</span><b>☀︎</b><strong>84°</strong></div>
-							<div><span>Sat</span><b>☁</b><strong>83°</strong></div>
-							<div><span>Sun</span><b>☀︎</b><strong>85°</strong></div>
+							<div data-forecast><span>—</span><b>◌</b><strong>--°</strong></div>
+							<div data-forecast><span>—</span><b>◌</b><strong>--°</strong></div>
+							<div data-forecast><span>—</span><b>◌</b><strong>--°</strong></div>
 						</div>
 						<div class="weather-detail">
-							<span>≋ Wind<br /><strong>SE 12 kt</strong></span>
-							<span>◒ Sunset<br /><strong>8:18 pm</strong></span>
+							<span>≋ Wind<br /><strong id="current-wind">--</strong></span>
+							<span>◓ Sunrise<br /><strong id="sunrise-time">--</strong></span>
+							<span>◒ Sunset<br /><strong id="sunset-time">--</strong></span>
 						</div>
 						<div class="tide-strip" aria-label="Upcoming tide preview">
 							<div class="tide-heading">
 								<span class="tide-icon" aria-hidden="true">≈</span>
 								<strong>Next tides</strong>
 							</div>
-							<div class="tide-event">
+							<div class="tide-event" data-tide>
 								<span aria-hidden="true">↑</span>
-								<div><small>High</small><strong>11:42 am</strong></div>
-								<em>1.4 ft</em>
+								<div><small>High</small><strong>--</strong></div>
+								<em>-- ft</em>
 							</div>
-							<div class="tide-event">
+							<div class="tide-event" data-tide>
 								<span aria-hidden="true">↓</span>
-								<div><small>Low</small><strong>8:16 pm</strong></div>
-								<em>0.5 ft</em>
+								<div><small>Low</small><strong>--</strong></div>
+								<em>-- ft</em>
 							</div>
 						</div>
 						<a
@@ -184,7 +185,7 @@ const featuredVideo = {
 						>
 							<span aria-hidden="true">◉</span> View weather radar <span aria-hidden="true">→</span>
 						</a>
-						<p class="weather-note">Design preview — live weather connection coming next.</p>
+						<p class="weather-note" id="weather-status" aria-live="polite">Loading live NWS and NOAA data…</p>
 					</div>
 				</article>
 			</section>
@@ -359,6 +360,79 @@ const featuredVideo = {
 			window.addEventListener('resize', () => {
 				if (window.innerWidth > 980) closeMenu();
 			});
+
+			const weatherIcon = (condition = '') => {
+				const text = condition.toLowerCase();
+				if (text.includes('thunder')) return '⛈';
+				if (text.includes('rain') || text.includes('shower')) return '🌧';
+				if (text.includes('fog') || text.includes('mist')) return '≋';
+				if (text.includes('snow') || text.includes('sleet')) return '❄';
+				if (text.includes('cloud') || text.includes('overcast')) return text.includes('partly') ? '🌤' : '☁';
+				if (text.includes('sun') || text.includes('clear')) return '☀';
+				return '◌';
+			};
+
+			const galvestonTime = (value: string) => new Intl.DateTimeFormat('en-US', {
+				timeZone: 'America/Chicago', hour: 'numeric', minute: '2-digit',
+			}).format(new Date(value));
+
+			const loadWeather = async () => {
+				const status = document.querySelector<HTMLElement>('#weather-status');
+				try {
+					const response = await fetch('/api/weather');
+					if (!response.ok) throw new Error('Weather request failed');
+					const data = await response.json();
+
+					const temperature = document.querySelector<HTMLElement>('#current-temperature');
+					const condition = document.querySelector<HTMLElement>('#current-condition');
+					const icon = document.querySelector<HTMLElement>('#current-weather-icon');
+					const wind = document.querySelector<HTMLElement>('#current-wind');
+					const sunrise = document.querySelector<HTMLElement>('#sunrise-time');
+					const sunset = document.querySelector<HTMLElement>('#sunset-time');
+					if (temperature) temperature.textContent = String(data.current.temperature ?? '--');
+					if (condition) condition.textContent = data.current.condition;
+					if (icon) icon.textContent = weatherIcon(data.current.condition);
+					if (wind) {
+						wind.textContent = data.current.windKnots === 0
+							? 'Calm'
+							: data.current.windKnots == null ? '--' : `${data.current.windDirection} ${data.current.windKnots} kt`;
+					}
+					if (sunrise) sunrise.textContent = galvestonTime(data.sunrise);
+					if (sunset) sunset.textContent = galvestonTime(data.sunset);
+
+					document.querySelectorAll<HTMLElement>('[data-forecast]').forEach((card, index) => {
+						const period = data.forecast[index];
+						if (!period) return;
+						const label = card.querySelector('span');
+						const periodIcon = card.querySelector('b');
+						const periodTemperature = card.querySelector('strong');
+						if (label) label.textContent = period.name.replace('This ', '');
+						if (periodIcon) periodIcon.textContent = weatherIcon(period.condition);
+						if (periodTemperature) periodTemperature.textContent = `${period.temperature}°`;
+					});
+
+					document.querySelectorAll<HTMLElement>('[data-tide]').forEach((card, index) => {
+						const tide = data.tides[index];
+						if (!tide) return;
+						const arrow = card.querySelector(':scope > span');
+						const type = card.querySelector('small');
+						const time = card.querySelector('strong');
+						const height = card.querySelector('em');
+						if (arrow) arrow.textContent = tide.type === 'High' ? '↑' : '↓';
+						if (type) type.textContent = tide.type;
+						if (time) time.textContent = galvestonTime(tide.time);
+						if (height) height.textContent = `${tide.height.toFixed(1)} ft`;
+					});
+
+					if (status) status.textContent = `Live NWS & NOAA data · Updated ${galvestonTime(data.updated)}`;
+				} catch {
+					if (status) status.textContent = 'Live weather data is temporarily unavailable.';
+					const condition = document.querySelector<HTMLElement>('#current-condition');
+					if (condition) condition.textContent = 'Please check again soon';
+				}
+			};
+
+			loadWeather();
 		</script>
 	</body>
 </html>
@@ -854,6 +928,10 @@ const featuredVideo = {
 		font-size: 1.7rem;
 	}
 
+	.weather-now strong .temperature-value {
+		font-size: inherit;
+	}
+
 	.weather-now p {
 		margin: 8px 0 0;
 		text-transform: uppercase;
@@ -916,7 +994,7 @@ const featuredVideo = {
 
 	.weather-detail {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: repeat(3, 1fr);
 		padding: 20px 25px;
 	}
 
