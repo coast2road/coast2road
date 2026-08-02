@@ -1,7 +1,9 @@
 ---
+import { logbookEntries } from '../data/logbook';
+
 const navigation = [
 	{ label: 'Home', href: '#top' },
-	{ label: 'Logbook', href: '#logbook' },
+	{ label: 'Logbook', href: '/logbook/' },
 	{ label: 'Adventures', href: '#adventures' },
 	{ label: 'Food', href: '#food' },
 	{ label: 'Watch', href: 'https://www.youtube.com/@coast2road' },
@@ -15,6 +17,8 @@ const featuredVideo = {
 	url: 'https://www.facebook.com/share/v/1CdUm9XtZo/',
 	image: '/images/dolphin-preview.png',
 };
+
+const latestStory = logbookEntries[0];
 ---
 
 <!doctype html>
@@ -87,7 +91,7 @@ const featuredVideo = {
 						A digital logbook of life on the water,<br />
 						the road, and everywhere in between.
 					</p>
-					<a class="primary-button" href="#logbook">
+					<a class="primary-button" href="/logbook/">
 						<span aria-hidden="true">⚓</span>
 						Open the Logbook
 					</a>
@@ -103,18 +107,18 @@ const featuredVideo = {
 					<div class="story-card">
 						<div class="story-image">
 							<img
-								src="/images/elcano-at-texas-am.jpg"
-								alt="The Spanish Navy training ship Juan Sebastián de Elcano at the Texas A&M Galveston campus pier"
+								src={latestStory.image}
+								alt={latestStory.imageAlt}
 							/>
-							<span>● Pelican Island · Galveston</span>
+							<span>● {latestStory.location}</span>
 						</div>
 						<div class="story-copy">
-							<h3>The Ship That Started Coast2Road</h3>
-							<p>When the <em>Juan Sebastián de Elcano</em> docked at our pier on the Texas A&M Galveston campus, an idea began to take shape.</p>
+							<h3>{latestStory.title}</h3>
+							<p>{latestStory.summary}</p>
 							<div class="story-meta">
-								<span>▣ From the archives</span>
-								<span>◷ 3 min read</span>
-								<a href="/logbook/the-ship-that-started-coast2road/" aria-label="Read The Ship That Started Coast2Road">→</a>
+								<span>▣ {latestStory.dateLabel}</span>
+								<span>◷ {latestStory.readTime}</span>
+								<a href={latestStory.href} aria-label={`Read ${latestStory.title}`}>→</a>
 							</div>
 						</div>
 					</div>
@@ -300,7 +304,7 @@ const featuredVideo = {
 
 				<nav class="footer-column" aria-label="Explore">
 					<h2>Explore</h2>
-					<a href="#logbook">Logbook</a>
+					<a href="/logbook/">Logbook</a>
 					<a href="#adventures">Adventures</a>
 					<a href="#food">Food</a>
 					<a href="https://www.youtube.com/@coast2road" target="_blank" rel="noopener noreferrer">Watch</a>
