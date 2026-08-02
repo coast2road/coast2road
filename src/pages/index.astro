@@ -7,6 +7,14 @@ const navigation = [
 	{ label: 'Watch', href: 'https://www.youtube.com/@coast2road' },
 	{ label: 'About', href: '/about/' },
 ];
+
+const featuredVideo = {
+	title: 'Dolphins at the Bow',
+	description: 'Some days the ocean gives you a show.',
+	label: 'On the water',
+	url: 'https://www.facebook.com/share/v/1CdUm9XtZo/',
+	image: '/images/dolphin-preview.png',
+};
 ---
 
 <!doctype html>
@@ -118,15 +126,15 @@ const navigation = [
 					</header>
 					<div class="video-card">
 						<div class="video-copy">
-							<p class="panel-kicker">On the water</p>
-							<h3>Dolphins at the Bow</h3>
-							<p>Some days the ocean gives you a show.</p>
+							<p class="panel-kicker">{featuredVideo.label}</p>
+							<h3>{featuredVideo.title}</h3>
+							<p>{featuredVideo.description}</p>
 						</div>
-						<a class="video-image" href="https://www.youtube.com/@coast2road" target="_blank" rel="noopener noreferrer" aria-label="Visit Coast2Road on YouTube">
-							<img src="/images/dolphin-preview.png" alt="A dolphin surfacing beside the vessel" />
+						<a class="video-image" href={featuredVideo.url} target="_blank" rel="noopener noreferrer" aria-label={`Watch ${featuredVideo.title} on Facebook`}>
+							<img src={featuredVideo.image} alt="A dolphin surfacing beside the vessel" />
 							<span class="play-button" aria-hidden="true">▶</span>
 						</a>
-						<a class="watch-button" href="https://www.youtube.com/@coast2road" target="_blank" rel="noopener noreferrer"><span>▶</span> Watch on YouTube</a>
+						<a class="watch-button" href={featuredVideo.url} target="_blank" rel="noopener noreferrer"><span>▶</span> Watch on Facebook</a>
 					</div>
 				</article>
 
